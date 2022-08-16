@@ -2,42 +2,5 @@
 FITTING SHELVE PROBLEM USING GREEDY
 
 
-
-import java.util.Scanner;
-public class GFG {
-static void minSpacePreferLarge(int wall, int m, int n)
-{
-int num_m = 0, num_n = 0, min_empty = wall;
-int p = wall/m, q = 0, rem=wall%m;
-num_m=p;
-num_n=q;
-min_empty=rem;
-while (wall >= n) {
-q += 1;
-wall = wall - n;
-p = wall / m;
-rem = wall % m;
-if (rem <= min_empty) {
-num_m = p;
-num_n = q;
-min_empty = rem;
-}
-q += 1;
-wall = wall - n;
-}
-System.out.println("the no of first shelve:"+num_m + "\nthe no of second shelve:" + num_n + "\nthe remaining space in the wall is:" + min_empty);
-}
-
-public static void main(String[] args)
-{
-    int wall,m,n;
-    Scanner s=new Scanner(System.in);
-    System.out.println("enter the wall space");
-    wall=s.nextInt();
-    System.out.println("enter the width of first shelve");
-    m=s.nextInt();
-    System.out.println("enter the width of second sheve");
-    n=s.nextInt();
-    minSpacePreferLarge(wall, m, n);
-}
-}
+In greedy algorithm, we either try to minimise, or maximise certain quantity at each and every stage. Here, we will be trying to minimze the empty space on the wall at every stage ,and store it in a counter variable which will be used to keep track of the minimum empty space along with counter variables for correspnding number of shelves of length m and n used. And, we will then iterate according to the greedy algorithm steps mentioned below to achieve the desired solution.
+the shelves aare fitted into the wall such a way that the remaining space on the wall should be minimum and the given constraints are the shelve with the larger size costs less hence we are concentrating more on the shelve with larger size
